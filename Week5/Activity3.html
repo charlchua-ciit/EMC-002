@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const changeContent = () => document.getElementById("changeContent").innerHTML = "Content Changed";
+        const changeFont = () => document.getElementById("changeFont").style.fontSize = "50px";
+        const hideShow = () => {
+        let x = document.getElementById("hideShow");
+        let y = document.getElementById("hideShowBtn");
+        if (x.style.display === "none") {
+            y.innerHTML = "Hide Text";
+            x.style.display = "block";
+        } else {
+            y.innerHTML = "Show Text";
+            x.style.display = "none";
+        }
+        }
+        const helloWorld = () => console.log("Hello World");
+        const welcome = () => alert("Welcome to CIIT");
+        const math = () => {
+            let x = 5;
+            let y = 3;
+            document.getElementById("math").innerHTML = x**y;
+        }
+    </script>
+</head>
+<body>
+    <p id="changeContent">This is default.</p>
+    <button onclick="changeContent()">Change text</button><br>
+    <p id="changeFont">Test Font</p>
+    <button onclick="changeFont()">Change font</button><br><br>
+    <p id="hideShow">This text can be hidden and shown</p>
+    <button id="hideShowBtn" onclick="hideShow()">Hide Text</button><br><br>
+    <button onclick="helloWorld()">Hello World</button><br><br>
+    <button onclick="welcome()">Welcome to CIIT</button><br><br>
+    <p id="math">Text</p>
+    <button onclick="math()">Do Math</button>
+
+</body>
+</html>
