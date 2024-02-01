@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const validate = () => {
+            let x = document.forms["form"];
+            let user = x["user"].value;
+            let pass = x["pass"].value;
+            if (user.length < 6) {
+                alert("Username must have at least 6 letters!");
+                return false;
+            } else if (user.search(/\W/g) >= 0){
+                alert("Username must have no special characters!");
+                return false;
+            }
+            if (pass.length < 8) {
+                alert("Password must have at least 8 letters!");
+                return false;
+            } else if (pass.search(/[a-z]/g) == -1){
+                alert("Password must include at least 1 lowercase letter!");
+                return false;
+            } else if (pass.search(/[A-Z]/g) == -1){
+                alert("Password must include at least 1 uppercase letter!");
+                return false;
+            } else if (pass.search(/\d/g) == -1){
+                alert("Password must include at least 1 digit!");
+                return false;
+            } else if (pass.search(/\W/g) == -1){
+                alert("Password must include at least 1 special character!");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="form" onsubmit="return validate()">
+        <label for="user">Username:</label><br>
+        <input type="text" name="user" id="user"><br>
+        <label for="pass">Password:</label><br>
+        <input type="password" name="pass" id="pass"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
