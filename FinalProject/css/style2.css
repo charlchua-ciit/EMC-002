@@ -5,3 +5,19 @@
 .text-green-50{
     color: 	#1fea0075;
 }
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+input,textarea{
+    width: 100%;
+}
