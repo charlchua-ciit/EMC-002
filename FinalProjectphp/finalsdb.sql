@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2024 at 08:18 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Mar 06, 2024 at 08:17 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `myonline_store`
+-- Database: `finalsdb`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `cart` (
   `user_id` int(255) NOT NULL,
   `item_id` int(255) NOT NULL,
   `quantity` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,7 +43,7 @@ CREATE TABLE `cart` (
 CREATE TABLE `categories` (
   `category_id` int(255) NOT NULL,
   `category_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -68,7 +68,7 @@ CREATE TABLE `products` (
   `price` varchar(255) NOT NULL,
   `item_img` varchar(255) NOT NULL,
   `category_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
@@ -85,7 +85,27 @@ INSERT INTO `products` (`item_id`, `itemname`, `description`, `price`, `item_img
 (8, 'Game Boy', 'One of the most recognizable devices from the 1990s, becoming a cultural icon in the years following its release.', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Game-Boy-FL.jpg/800px-Game-Boy-FL.jpg', 2),
 (9, 'Game Boy Advance', '32-bit handheld game console developed by Nintendo as the successor to the Game Boy, with hardware performance comparable to the SNES.', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-Game-Boy-Advance-Purple-FL.jpg/1280px-Nintendo-Game-Boy-Advance-Purple-FL.jpg', 2),
 (10, 'Nintendo DS', 'Foldable handheld game console produced by Nintendo, the best-selling Nintendo system, handheld game console, and the second-best-selling video game console of all time.', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Nintendo-DS-Fat-Blue.jpg/1024px-Nintendo-DS-Fat-Blue.jpg', 2),
-(11, 'Playstation Portable', 'The most powerful portable console at the time of its introduction, and the first viable competitor to Nintendo\'s handheld consoles after many challengers fell short.', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Psp-1000.jpg/1920px-Psp-1000.jpg', 2);
+(11, 'Playstation Portable', 'The most powerful portable console at the time of its introduction, and the first viable competitor to Nintendo\'s handheld consoles after many challengers fell short.', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Psp-1000.jpg/1920px-Psp-1000.jpg', 2),
+(12, 'NES Controller', 'Controller for Nintendo Entertainment System', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nintendo-Entertainment-System-NES-Controller-FL.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-FL.jpg', 3),
+(13, 'NES Zapper', 'Special light gun controller, for use in NES games like Duck Hunt', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Nintendo-Entertainment-System-NES-Zapper-Gray-L.jpg/1920px-Nintendo-Entertainment-System-NES-Zapper-Gray-L.jpg', 3),
+(14, 'SNES Controller', 'Controller for the Super Nintendo Entertainment System', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Super-Famicom-Controller.jpg/1280px-Super-Famicom-Controller.jpg', 3),
+(15, 'PSX Controller', 'Controller for the Playstation 1', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/PSX-Original-Controller.jpg/1024px-PSX-Original-Controller.jpg', 3),
+(16, 'N64 Controller', 'Controller for the Nintendo 64', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/N64-Controller-Gray.jpg/1280px-N64-Controller-Gray.jpg', 3),
+(17, 'Dualshock', 'Dual Analog controller for the PSX', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/c/c2/DualShock.png', 3),
+(18, 'Dualshock 2', 'Dual Analog controller for the Playstation 2', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/DualShock_2.jpg/1280px-DualShock_2.jpg', 3),
+(19, 'Gamecube Controller', 'Dual Analog controller for the Nintendo Gamecube', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/GameCube_controller.png/1280px-GameCube_controller.png', 3),
+(20, 'XBOX S Controller', 'Dual Analog controller for the XBOX', '$40.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Xbox-s-controller.jpg/1024px-Xbox-s-controller.jpg', 3),
+(21, 'NES Game', 'Game for NES', '$80.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/NES-Console-Set.png/1920px-NES-Console-Set.png', 4),
+(22, 'SNES Game', 'Game for SNES', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SNES-Mod1-Console-Set.png/1280px-SNES-Mod1-Console-Set.png', 4),
+(23, 'Nintendo 64 Game', 'Game for N64', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/N64-Console-Set.png/1920px-N64-Console-Set.png', 4),
+(24, 'PSX Game', 'Game for the Playstation 1', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/PlayStation-SCPH-1000-with-Controller.jpg/1920px-PlayStation-SCPH-1000-with-Controller.jpg', 4),
+(25, 'PS2 Game', 'Game for the PS2', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/PS2-Versions.jpg/1024px-PS2-Versions.jpg', 4),
+(26, 'Gamecube Game', 'Game for the Gamecube', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/GameCube-Console-Set.png/1920px-GameCube-Console-Set.png', 4),
+(27, 'XBOX Game', 'Game for the XBOX', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Xbox-Console-wDuke-L.jpg/1920px-Xbox-Console-wDuke-L.jpg', 4),
+(28, 'Game Boy Game', 'Game for the GB', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Game-Boy-FL.jpg/800px-Game-Boy-FL.jpg', 4),
+(29, 'Game Boy Advance Game', 'Game for the GBA', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-Game-Boy-Advance-Purple-FL.jpg/1280px-Nintendo-Game-Boy-Advance-Purple-FL.jpg', 4),
+(30, 'Nintendo DS Game', 'Game for the NDS', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Nintendo-DS-Fat-Blue.jpg/1024px-Nintendo-DS-Fat-Blue.jpg', 4),
+(31, 'Playstation Portable Game', 'Game for the PSP', '$18.00', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Psp-1000.jpg/1920px-Psp-1000.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -95,22 +115,10 @@ INSERT INTO `products` (`item_id`, `itemname`, `description`, `price`, `item_img
 
 CREATE TABLE `profile` (
   `user_id` int(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  `mobile` int(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `profile`
---
-
-INSERT INTO `profile` (`user_id`, `username`, `password`, `firstname`, `lastname`, `mobile`, `address`, `email`) VALUES
-(1, 'a', 'afa', 'sdgsg', 'sdgs', 0, 'sfg', 'dsg'),
-(2, 'aGDHS', 'ADSFGSDGHD', 'sdgsgFSDG', 'sdgsSFDG', 0, 'sfgSFG', 'dsgSgDF');
+  `user` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -166,7 +174,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `item_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `item_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `profile`
