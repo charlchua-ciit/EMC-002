@@ -1,5 +1,5 @@
 <?php 
-    session_start()
+    session_start();
     $con = mysqli_connect('localhost', 'root', '','finalsdb');
     if ($con->connect_error) {
         die("Connection failed: " . $con->connect_error);
@@ -18,7 +18,7 @@
                 if(password_verify($pass,$row["pass"])){
                     $_SESSION['valid'] = true;
                     $_SESSION['timeout'] = time();
-                    $_SESSION['username'] = $user;
+                    $_SESSION['user'] = $user;
                     header("Location: index.php");
                     die();
                 }
@@ -29,5 +29,7 @@
             alert("User not found")
         </script>
         <?php
+        header("Location: login.php");
+        die();
     }
 ?>

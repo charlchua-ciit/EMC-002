@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 08:17 AM
+-- Generation Time: Mar 06, 2024 at 05:57 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,19 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `finalsdb`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cart`
---
-
-CREATE TABLE `cart` (
-  `order_id` int(255) NOT NULL,
-  `user_id` int(255) NOT NULL,
-  `item_id` int(255) NOT NULL,
-  `quantity` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -121,16 +108,15 @@ CREATE TABLE `profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `profile`
 --
 
+INSERT INTO `profile` (`user_id`, `user`, `email`, `pass`) VALUES
+(3, 'charl1', 'charldaniel.chua@gmail.com', '$2y$10$of/dsa7xyhXEDc6IgmHMDexYiO6OJL/3yIivuwRzuHXNbPoHXLZJm');
+
 --
--- Indexes for table `cart`
+-- Indexes for dumped tables
 --
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `item_id` (`item_id`);
 
 --
 -- Indexes for table `categories`
@@ -159,12 +145,6 @@ ALTER TABLE `profile`
 --
 
 --
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `order_id` int(255) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -180,18 +160,11 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `profile` (`user_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`item_id`) REFERENCES `products` (`item_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`

@@ -30,16 +30,19 @@ session_start()
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="products.php">Products</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                        <?php
+                            if (isset($_SESSION['valid']) && $_SESSION['valid']): ?>
+                                <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
+                            <?php else: ?>
+                                <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                            <?php endif; ?>
                         <li class="nav-item"><a class="nav-link" href="cs.php">Customer Support</a></li>
                     </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                        <button class="btn btn-outline-dark" onclick="location.href = 'cart.php';">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
-                    </form>
                 </div>
             </div>
         </nav>
