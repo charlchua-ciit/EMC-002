@@ -7,7 +7,7 @@
             <div class="card h-100">
                 <div class="card-body p-4">
                     <div>
-                        <form name="form" id="form" onsubmit="" action="validate.php" method="post">
+                        <form name="form" id="form" onsubmit="" action="login_validate.php" method="post">
                             <label for="user">Username:</label><br>
                             <input type="text" name="user" id="user"><br>
                             <label for="pass">Password:</label><br>

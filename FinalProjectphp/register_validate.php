@@ -9,9 +9,10 @@
     $pass = $_POST['pass'];
     $hash_pass = password_hash($pass, PASSWORD_DEFAULT);
     
-    $sql = "INSERT INTO `profile` (`user_id`, `user`, `email`, `pass`) VALUES (NULL, {$user}, {$email}, {$hash_pass})";
+    $sql = "INSERT INTO `profile` (`user_id`, `user`, `email`, `pass`) VALUES (NULL, '$user', '$email', '$hash_pass')";
     if ($con->query($sql) === TRUE) {
-        echo 'success';
+        header("Location: login.php");
+        die();
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
       }

@@ -28,8 +28,5 @@ const validate = () => {
     } else if (pass.search(/\d/g) == -1){
         alert("Password must include at least 1 digit!");
         return false;
-    } else if (pass.search(/\W/g) == -1){
-        alert("Password must include at least 1 special character!");
-        return false;
     }
 }
