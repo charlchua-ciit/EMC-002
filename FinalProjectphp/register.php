@@ -7,13 +7,15 @@
             <div class="card h-100">
                 <div class="card-body p-4">
                     <div>
-                        <form name="form" id="form" onsubmit="" action="validate.php" method="post">
+                        <form name="form" id="form" onsubmit="return validate()" action="validate.php" method="post">
+                            <label for="user">Email:</label><br>
+                            <input type="email" name="email" id="email"><br>
                             <label for="user">Username:</label><br>
                             <input type="text" name="user" id="user"><br>
                             <label for="pass">Password:</label><br>
                             <input type="password" name="pass" id="pass"><br><br>
                             <input type="submit" value="Submit" class="btn btn-outline-dark mt-auto">
-                            <p>Not yet registered? <a href="register.php">Register</a> here!</p>
+                            <p>Already registered? <a href="login.php">Login</a> here!</p>
                         </form>
                     </div>
                 </div>
