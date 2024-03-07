@@ -21,3 +21,21 @@
 input,textarea{
     width: 100%;
 }
+
+table{
+    width:100%;
+}
+
+td,th {
+    padding: 8px;
+  }
+  
+tr:nth-child(even){background-color: #08080859;}
+  
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1fea00b2;
+    color: white;
+  }

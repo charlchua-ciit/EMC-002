@@ -19,6 +19,7 @@
                     $_SESSION['valid'] = true;
                     $_SESSION['timeout'] = time();
                     $_SESSION['user'] = $user;
+                    $_SESSION['cart'] = array();
                     header("Location: index.php");
                     die();
                 }

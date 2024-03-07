@@ -8,16 +8,6 @@ $result = $con->query($sql);
 ?>
 <!-- Header-->
 <?php include 'header.php';
-
-if(isset($_POST['add_item'])){
-    if(!isset($_SESSION['cart'])){
-        $_SESSION['cart']=array($_POST['add_item']);
-    }
-    else {
-        $_SESSION['cart'] = $_POST['add_item'];
-    }
-}
-
 if ($result->num_rows > 0) {
         for ($x=1;$x<=4;$x++){
         ?>
@@ -33,7 +23,7 @@ if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             if ($row["category_id"]==$x){
                 ?>
-                <div class="col mb-5">
+                <div id="item_<?php echo $row["item_id"]?>" class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
                         <img class="card-img-top" src=<?php echo $row["item_img"]?> alt="..." />
@@ -52,8 +42,9 @@ if ($result->num_rows > 0) {
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <form method="post">
+                                <form method="post" action="add.php">
                                     <input type="hidden" id="price_item_<?php echo $row["item_id"]?>" name="add_item" value="<?php echo $row["item_id"]?>">
+                                    <input type="hidden" id="current_page" name="page" value="products.php">
                                     <input type="submit" value="Add to cart" class="btn btn-outline-dark mt-auto"></input>
                                 </form>
                             </div>
