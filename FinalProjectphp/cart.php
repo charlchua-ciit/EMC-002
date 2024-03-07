@@ -5,7 +5,24 @@
             <div class="card h-100">
                 <div class="card-body p-4">
                     <div>
-                        cart
+                        <h1>Cart</h1>
+                        <table>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                            <?php
+                            foreach($_SESSION['cart'] as $x){
+                                $sql = "SELECT itemname,price FROM products WHERE item_id = $x";
+
+                                $result = $con->query($sql);
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<td>".$row['itemname']."</td><td>$".$row['price']."</td>";
+                                  }
+                            }
+                            ?>
+                        </table>
                     </div>
                 </div>
             </div>

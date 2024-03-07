@@ -7,9 +7,17 @@ $sql = "SELECT * FROM products";
 $result = $con->query($sql);
 ?>
 <!-- Header-->
-<?php include 'header.php'?>
+<?php include 'header.php';
 
-<?php 
+if(isset($_POST['add_item'])){
+    if(!isset($_SESSION['cart'])){
+        $_SESSION['cart']=array($_POST['add_item']);
+    }
+    else {
+        $_SESSION['cart'] = $_POST['add_item'];
+    }
+}
+
 if ($result->num_rows > 0) {
         for ($x=1;$x<=4;$x++){
         ?>
@@ -38,12 +46,17 @@ if ($result->num_rows > 0) {
                                     <p><?php echo $row["description"]?></p>
                                 </div>
                                 <!-- Product price-->
-                                <?php echo $row["price"]?>
+                                $<?php echo $row["price"]?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            <div class="text-center">
+                                <form method="post">
+                                    <input type="hidden" id="price_item_<?php echo $row["item_id"]?>" name="add_item" value="<?php echo $row["item_id"]?>">
+                                    <input type="submit" value="Add to cart" class="btn btn-outline-dark mt-auto"></input>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,9 +69,7 @@ if ($result->num_rows > 0) {
     </div>
     </section>
     <?php
-    }
-}
-?>
-
-<?php include 'footer.php'?>
+    };
+};
+include 'footer.php'?>
 

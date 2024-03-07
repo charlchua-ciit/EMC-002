@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
                                     <p><?php echo $row["description"]?></p>
                                 </div>
                                 <!-- Product price-->
-                                <?php echo $row["price"]?>
+                                $<?php echo $row["price"]?>
                             </div>
                         </div>
                         <!-- Product actions-->
