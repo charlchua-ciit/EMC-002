@@ -1,4 +1,13 @@
-<?php include 'header.php'?>
+<?php include 'header.php';
+
+$con = mysqli_connect('localhost', 'root', '','finalsdb');
+
+// database insert SQL code
+$sql = "SELECT * FROM orders INNER JOIN profile ON orders.user_id = profile.user_id INNER JOIN products ON orders.item_id = products.item_id;";
+
+$result = $con->query($sql);
+
+?>
 <section class="py-5 wrapper">
     <div class="container px-4 px-lg-5 mt-5 text-green">
         <div class="col mb-5">
@@ -7,6 +16,29 @@
                     <div>
                         <h1>Welcome, <?php echo $_SESSION['user']?></h2>
                         <p>This is your profile page.</p>
+                        <?php
+                        if ($result->num_rows > 0) {
+                            ?>
+                            <h1>Purchase History</h1>
+                            <table>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                </tr>
+                                <?php
+                                while($row = $result->fetch_assoc()) {
+                                    if ($row["user_id"]==$_SESSION['uid']){
+                                        echo "<tr>";
+                                        echo "<td>".$row['order_id']."</td><td>".$row['itemname']."</td><td>$".$row['price'];
+                                        echo "</tr>";
+                                        }
+                                    }
+                                echo "</table>";
+                        } else {
+                            echo "<p> You haven't bought anything.</p>";
+                        }
+                        ?>
                         <button class="btn btn-outline-dark mt-auto" onclick="location.href = 'logout.php';">Logout</button>
                     </div>
                 </div>

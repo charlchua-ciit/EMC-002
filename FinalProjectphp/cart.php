@@ -37,7 +37,7 @@ if (!isset($_SESSION['user'])){
                                             <form method="post" action="remove.php">
                                                 <input type="hidden" name="del_item" value=<?php echo $y-1?>></input>
                                                 <input type="submit" value="Remove" class='btn btn-outline-dark mt-auto' style='float:right;'>
-                                            </form>    
+                                            </form>
                                         </td>
                                         <?php
                                     }
@@ -49,6 +49,9 @@ if (!isset($_SESSION['user'])){
                             }
                             ?>
                         </table>
+                        <form method="post" action="order.php">
+                            <input type="submit" value="Order" class='btn btn-outline-dark mt-auto' style='float:right;'>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -20,6 +20,7 @@
                     $_SESSION['timeout'] = time();
                     $_SESSION['user'] = $user;
                     $_SESSION['cart'] = array();
+                    $_SESSION['uid'] = $row['user_id'];
                     header("Location: index.php");
                     die();
                 }
