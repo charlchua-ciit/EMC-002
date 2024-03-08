@@ -5,6 +5,7 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
 const validate = () => {
     let x = document.forms["form"];
     let user = x["user"].value;

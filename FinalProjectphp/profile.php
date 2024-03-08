@@ -3,7 +3,7 @@
 $con = mysqli_connect('localhost', 'root', '','finalsdb');
 
 // database insert SQL code
-$sql = "SELECT * FROM orders INNER JOIN profile ON orders.user_id = profile.user_id INNER JOIN products ON orders.item_id = products.item_id;";
+$sql = "SELECT * FROM orders INNER JOIN profile ON orders.user_id = profile.user_id INNER JOIN products ON orders.item_id = products.item_id WHERE orders.user_id = ".$_SESSION['uid'].";";
 
 $result = $con->query($sql);
 
@@ -20,25 +20,28 @@ $result = $con->query($sql);
                         if ($result->num_rows > 0) {
                             ?>
                             <h1>Purchase History</h1>
+                            <div class="tableFixHead">
                             <table>
-                                <tr>
-                                    <th>Order ID</th>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
                                 <?php
                                 while($row = $result->fetch_assoc()) {
-                                    if ($row["user_id"]==$_SESSION['uid']){
-                                        echo "<tr>";
-                                        echo "<td>".$row['order_id']."</td><td>".$row['itemname']."</td><td>$".$row['price'];
-                                        echo "</tr>";
-                                        }
+                                    echo "<tr>";
+                                    echo "<td>".$row['order_id']."</td><td>".$row['itemname']."</td><td>$".$row['price'];
+                                    echo "</tr>";
                                     }
                                 echo "</table>";
+                                echo "</div>";
                         } else {
                             echo "<p> You haven't bought anything.</p>";
                         }
                         ?>
+                        <br>
                         <button class="btn btn-outline-dark mt-auto" onclick="location.href = 'logout.php';">Logout</button>
                     </div>
                 </div>

@@ -49,6 +49,7 @@ if (!isset($_SESSION['user'])){
                             }
                             ?>
                         </table>
+                        <br>
                         <form method="post" action="order.php">
                             <input type="submit" value="Order" class='btn btn-outline-dark mt-auto' style='float:right;'>
                         </form>

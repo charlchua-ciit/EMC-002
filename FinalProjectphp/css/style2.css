@@ -22,6 +22,15 @@ input,textarea{
     width: 100%;
 }
 
+.tableFixHead {
+    overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
+    height: 250px; /* gives an initial height of 200px to the table */
+  }
+  .tableFixHead thead th {
+    position: sticky; /* make the table heads sticky */
+    top: 0px; /* table head will be placed from the top of the table and sticks to it */
+  }
+
 table{
     width:100%;
 }
@@ -36,6 +45,10 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #1fea00b2;
+    background-color: #1bc700;
     color: white;
+  }
+
+  .navbar{
+    background-color: black;
   }

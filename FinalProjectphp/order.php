@@ -6,5 +6,6 @@ foreach($_SESSION['cart'] as $x){
     $sql= "INSERT INTO `orders` (`order_id`, `user_id`, `item_id`) VALUES (NULL, $uid, $x)";
     $con->query($sql);
 }
+unset($_SESSION['cart']);
 header("Location: profile.php");
 ?>
