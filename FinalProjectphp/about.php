@@ -4,7 +4,7 @@
 <section class="py-5 wrapper">
     <div class="container px-4 px-lg-5 mt-5 text-green">
         <h1>About Us</h1>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <p>We at RetroStop believe that everyone should have the opportunity to play games of the older generations, regardless of who you are. As it stands, majority of these older games and consoles go for extremely high resale prices. We hope to provide the public with affordable options to play your favorite games on original hardware.</p>
     </div>
 </section>
 <?php include 'footer.php'?>

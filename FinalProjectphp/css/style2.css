@@ -6,16 +6,14 @@
     color: 	#1fea00b2;
 }
 
-.footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
 
 .wrapper{
     display: flex;
     flex-direction: column;
+}
+
+.spacer{
+  margin: 100px;
 }
 
 input,textarea{

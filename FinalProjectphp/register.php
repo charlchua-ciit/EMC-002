@@ -9,11 +9,11 @@
                     <div>
                         <form name="form" id="form" onsubmit="return validate()" action="register_validate.php" method="post">
                             <label for="user">Email:</label><br>
-                            <input type="email" name="email" id="email"><br>
+                            <input type="email" name="email" id="email" required><br>
                             <label for="user">Username:</label><br>
-                            <input type="text" name="user" id="user"><br>
+                            <input type="text" name="user" id="user" required><br>
                             <label for="pass">Password:</label><br>
-                            <input type="password" name="pass" id="pass"><br><br>
+                            <input type="password" name="pass" id="pass" required><br><br>
                             <input type="submit" value="Submit" class="btn btn-outline-dark mt-auto">
                             <p>Already registered? <a href="login.php">Login</a> here!</p>
                         </form>

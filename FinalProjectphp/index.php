@@ -10,7 +10,6 @@ $featured = array(2,3,5,6,7,9,10,11)
 ?>
 <!-- Header-->
 <?php include 'header.php'?>
-
 <section class="py-5 wrapper">
 <div class="container px-4 px-lg-5 mt-5">
         <h2 class="text-green">Featured Products</h2>
@@ -59,6 +58,5 @@ if ($result->num_rows > 0) {
 </div>
 </div>
 </section>
-
 <?php include 'footer.php'?>
 

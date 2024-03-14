@@ -8,17 +8,24 @@ $result = $con->query($sql);
 ?>
 <!-- Header-->
 <?php include 'header.php';
+?>
+<section class="py-5 wrapper">
+    <div class="container px-4 px-lg-5 mt-5">
+        <input id="myInput" type="text" placeholder="Search for products...">
+    </div>
+</section>
+<?php
 if ($result->num_rows > 0) {
         for ($x=1;$x<=4;$x++){
         ?>
         <section class="py-5 wrapper">
         <div class="container px-4 px-lg-5 mt-5">
-                <h2 class="text-green"><?php 
+                <h2 class="text-green categoryName"><?php 
                 $csql = "SELECT * FROM categories WHERE category_id = $x";
                 $cresult = $con->query($csql);
                 echo $cresult->fetch_assoc()["category_name"]
                 ?></h2>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div id="myDIV_<?php echo $x;?>" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         <?php
         while($row = $result->fetch_assoc()) {
             if ($row["category_id"]==$x){

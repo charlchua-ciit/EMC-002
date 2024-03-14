@@ -31,3 +31,24 @@ const validate = () => {
         return false;
     }
 }
+
+$(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+        if ($('input:text').is(":empty")) {
+            $("h2").hide();
+          }
+      var value = $(this).val().toLowerCase();
+      $("#myDIV_1").children().each(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      })
+      $("#myDIV_2").children().each(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      })
+      $("#myDIV_3").children().each(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      })
+      $("#myDIV_4").children().each(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      })
+    });
+  });

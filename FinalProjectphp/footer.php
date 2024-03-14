@@ -1,5 +1,6 @@
+<div class="spacer"></div>
 <!-- Footer-->
-<footer class="py-5 bg-dark footer">
+<footer class="py-5 bg-dark fixed-bottom footer">
             <div class="container"><p class="m-0 text-center text-green">Copyright &copy; Your Website 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->

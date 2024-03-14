@@ -5,11 +5,11 @@
             <div class="card h-100">
                 <div class="card-body p-4">
                     <div>
-                        <form name="form">
+                        <form id="form" name="form" method="post" action="submitCS.php">
                             <label for="issue">Nature of issue:</label><br>
-                            <input type="text" name="issue" id="issue"><br>
+                            <input type="text" id="issue" name="issue"><br>
                             <label for="details">Details:</label><br>
-                            <textarea name="details" id="details" form="form" cols="30" rows="10"></textarea><br><br>
+                            <textarea id="details" name="details" form="form" cols="30" rows="10"></textarea><br><br>
                             <input type="submit" value="Submit" class="btn btn-outline-dark mt-auto">
                         </form>
                     </div>
